@@ -1,0 +1,970 @@
+/* 色票
+#3A3B3B
+#E8CB49 */
+
+/* Reset 與版面調整（移除頁面上下白邊、確保輪播區塊滿版） */
+html,
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f9fa;
+	/* 暖灰色底比純白更有質感 */
+}
+
+/* --- 背景質感紋理 (Background Textures) --- */
+.bg-texture {
+	position: relative;
+}
+
+.bg-texture::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: radial-gradient(#e8cb49 1px, transparent 1px);
+	background-size: 30px 30px;
+	opacity: 0.1;
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* --- 進階優化：自訂捲軸 (Custom Scrollbar) --- */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #E8CB49;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #d4b840;
+}
+
+/* 移除 header/site-top/section 的預設外距與底線，確保區塊交接無白條 */
+.site-top,
+header,
+section {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	border-bottom: none;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+header .navbar {
+	border-bottom: none !important;
+	box-shadow: none !important;
+	background: rgba(38, 38, 38, 0.85) !important;
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	transition: all 0.3s ease;
+}
+
+header .navbar.scrolled {
+	padding: 10px 0;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* --- 進階優化：搜尋膠囊 (Search Capsule) --- */
+.search-capsule {
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 50px;
+	padding: 2px;
+	transition: all 0.3s ease;
+	max-width: 300px;
+}
+
+.search-capsule:focus-within {
+	border-color: #E8CB49;
+	box-shadow: 0 0 15px rgba(232, 203, 73, 0.2);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.search-capsule .form-control {
+	font-size: 0.95rem;
+	color: #ffffff !important;
+}
+
+.search-capsule .form-control::placeholder {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.search-capsule .btn-search {
+	background-color: #E8CB49;
+	color: #262626;
+	border-radius: 50px;
+	font-size: 0.9rem;
+	font-weight: 700;
+	margin: 2px;
+	border: none;
+	transition: all 0.3s ease;
+}
+
+.search-capsule .btn-search:hover {
+	background-color: #ffffff;
+	transform: scale(1.05);
+}
+
+/* 確保 header 與 site-top 滿版並調整顯示 */
+.site-top {
+	width: 100%;
+	background-color: #262626;
+}
+
+.site-top .container {
+	max-width: 1200px;
+}
+
+.site-top h1 {
+	color: #fff;
+}
+
+/* 將輪播區塊放入 .hero-dark，hero 負責深色背景 */
+.hero-dark {
+	background-color: #262626;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	/* 確保深色延伸到底部 */
+	border-bottom: none;
+}
+
+.swiper-container {
+	width: 100%;
+	margin: 0;
+	/* 取消任何上下間距造成的白條 */
+	padding: 12px 0;
+	/* 輪播內間距，照片不會緊貼上下 */
+	box-sizing: border-box;
+	background-color: transparent;
+	/* 透明，顯示 hero-dark 的背景 */
+}
+
+/* 已移除重複的 #intro（上方修補）—已合併到下方單一定義 */
+
+/* 基本文字樣式 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Noto Sans TC', sans-serif;
+}
+
+p,
+a,
+span,
+li,
+label {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.09rem;
+	font-weight: 300;
+}
+
+img {
+	max-width: 100%;
+}
+
+li {
+	list-style: none;
+}
+
+/* --- 進階優化：區塊銜接分界 (Section Dividers) --- */
+.section-divider-top {
+	height: 100px;
+	background-color: #262626;
+	clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+	margin-bottom: -100px;
+	position: relative;
+	z-index: 5;
+}
+
+#intro,
+#second,
+#second-profile,
+#latest {
+	padding: 120px 0;
+}
+
+#intro {
+	background: linear-gradient(-45deg, #1a1a1a, #262626, #1a1a1a);
+	background-size: 400% 400%;
+	animation: gradientMove 15s ease infinite;
+	padding-top: 180px;
+	padding-bottom: 120px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	position: relative;
+	overflow: hidden;
+}
+
+#intro .container {
+	position: relative;
+	z-index: 2;
+}
+
+/* --- 進階優化：玻璃質感主視覺容器 (Glassmorphism Hero Card) --- */
+.intro-glass-card {
+	/* 修正：增加透明度 (0.4 -> 0.25)，讓背景圖片細節更清晰可見 */
+	background: rgba(10, 10, 10, 0.05);
+	backdrop-filter: blur(10px);
+	/* 稍微降低模糊度，提升通透感 */
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	/* 加強邊框線條 */
+	padding: 80px;
+	border-radius: 40px;
+	box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes gradientMove {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#intro h1 {
+	color: #ffffff !important;
+	font-size: 5.2rem;
+	font-weight: 900 !important;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+	margin-bottom: 30px;
+}
+
+#intro .lead {
+	color: rgba(255, 255, 255, 0.9) !important;
+	font-size: 1.65rem !important;
+	line-height: 1.8 !important;
+	max-width: 100%;
+	font-weight: 500 !important;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#intro .btn-outline-light {
+	/* 修正：將空心改為實心主題色，解決文字看不見的問題 */
+	background-color: #E8CB49;
+	border: none;
+	color: #262626 !important;
+	/* 強制深色文字 */
+	font-weight: 850;
+	padding: 16px 55px;
+	font-size: 1.4rem;
+	transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+	border-radius: 50px;
+	box-shadow: 0 10px 25px rgba(232, 203, 73, 0.3);
+}
+
+#intro .btn-outline-light:hover {
+	background-color: #ffffff;
+	color: #262626 !important;
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
+}
+
+.btn {
+	background-color: #E8CB49;
+	padding: 7px 28px;
+	border-radius: 20px;
+	border: none;
+	color: #3A3B3B;
+}
+
+.btn:hover {
+	opacity: 0.8;
+	background-color: #E8CB49 !important;
+}
+
+/* 心得與個人簡介 */
+#second {
+	background: #fdfdfd;
+	color: #262626;
+}
+
+#second .display-6,
+#second h2 {
+	color: #262626;
+}
+
+
+#second .text-secondary {
+	color: #666 !important;
+}
+
+.feature-card {
+	background: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.05);
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card h4 {
+	color: #262626;
+}
+
+.feature-card p {
+	color: #666 !important;
+}
+
+.feature-card:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12) !important;
+	border-color: #E8CB49;
+}
+
+.feature-icon {
+	color: #E8CB49;
+	background-color: #fff;
+	box-shadow: 0 10px 20px rgba(232, 203, 73, 0.15);
+	border: 1px solid rgba(232, 203, 73, 0.2);
+}
+
+/* Background Glow Effects - 已優化簡化 */
+.bg-glow {
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(120px);
+	z-index: 1;
+	opacity: 0.1;
+	pointer-events: none;
+}
+
+.bg-glow-1 {
+	width: 400px;
+	height: 400px;
+	background: #E8CB49;
+	top: -100px;
+	left: -100px;
+	animation: float 15s infinite alternate;
+}
+
+.bg-glow-2 {
+	width: 300px;
+	height: 300px;
+	background: #3AA1BF;
+	bottom: -50px;
+	right: -50px;
+	animation: float 20s infinite alternate-reverse;
+}
+
+.bg-glow-3 {
+	width: 250px;
+	height: 250px;
+	background: #F2385A;
+	top: 50%;
+	left: 40%;
+	animation: float 18s infinite alternate;
+}
+
+@keyframes float {
+	0% {
+		transform: translate(0, 0) scale(1);
+	}
+
+	100% {
+		transform: translate(50px, 40px) scale(1.1);
+	}
+}
+
+/* --- 進階優化：捲動出現動畫 (Scroll Reveal) --- */
+.reveal {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.active {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* --- 進階優化：微互動 (Micro-interactions) --- */
+/* 修正：僅對非下拉選單的連結加入底線，避免與 Bootstrap caret 衝突 */
+.nav-link:not(.dropdown-toggle) {
+	position: relative;
+	transition: color 0.3s ease;
+}
+
+.nav-link:not(.dropdown-toggle)::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #E8CB49;
+	transition: width 0.3s ease;
+}
+
+.nav-link:not(.dropdown-toggle):hover::after {
+	width: 100%;
+}
+
+/* 修正：優化下拉選單的箭頭樣式，使其與主題色協調 */
+.dropdown-toggle::after {
+	vertical-align: 0.2em !important;
+	margin-left: 0.4em !important;
+	border-top-color: inherit;
+	/* 跟隨文字顏色 */
+	transition: transform 0.3s ease;
+}
+
+.show>.dropdown-toggle::after {
+	transform: rotate(180deg);
+	/* 展開時箭頭反轉，增加質感 */
+}
+
+
+.feature-card .feature-icon i {
+	transition: transform 0.4s ease;
+}
+
+.feature-card:hover .feature-icon i {
+	transform: scale(1.2) rotate(10deg);
+}
+
+#second-profile {
+	padding: 80px 0;
+}
+
+#second .self img,
+#second-profile .self img {
+	/* 修正：改為 1:1 比例顯示，並使用 contain 確保不被切邊 */
+	object-fit: contain;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	width: 100%;
+	object-position: center;
+	background-color: transparent;
+}
+
+#second-profile h3,
+#latest h3 {
+	margin-bottom: 70px;
+	font-size: 32px;
+}
+
+#second h5,
+#second-profile h5 {
+	margin-top: 22px;
+	font-size: 16px;
+}
+
+#second li,
+#second-profile li {
+	position: relative;
+}
+
+#second li::before,
+#second-profile li::before {
+	content: '';
+	position: absolute;
+	left: -23px;
+	top: 4px;
+	width: 10px;
+	height: 17px;
+	background: #E8CB49;
+	border-radius: 0 100px 100px 0;
+}
+
+p {
+	font-size: 16px;
+	line-height: 26px;
+	color: #707070;
+}
+
+p.lead {
+	font-size: 1.09rem;
+	color: black;
+	line-height: 31px;
+}
+
+/* 最新消息 / 推薦方案 */
+#latest {
+	background: #ffffff;
+	padding: 100px 0;
+}
+
+#latest .outer {
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	background: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.05) !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+#latest .outer:hover {
+	transform: translateY(-15px);
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12) !important;
+	border-color: #E8CB49 !important;
+}
+
+#latest .upper {
+	overflow: hidden;
+}
+
+#latest .upper img {
+	height: 260px;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+
+#latest .outer:hover .upper img {
+	transform: scale(1.1);
+}
+
+#latest .innertext {
+	z-index: 5;
+}
+
+#latest .badge {
+	font-size: 0.85rem;
+	font-weight: 500;
+}
+
+#latest .lower h4 {
+	font-size: 1.3rem;
+	color: #333;
+	line-height: 1.4;
+}
+
+#latest .price .text-success {
+	color: #2e7d32 !important;
+}
+
+#latest .btn-dark {
+	background-color: #262626;
+	color: #ffffff !important;
+	border: none;
+	transition: all 0.3s ease;
+}
+
+#latest .btn-dark:hover {
+	background-color: #E8CB49;
+	color: #262626 !important;
+}
+
+#latest .status .text-primary {
+	color: #0d6efd !important;
+}
+
+#latest .status .text-warning {
+	color: #ffc107 !important;
+}
+
+#latest .status .text-info {
+	color: #0dcaf0 !important;
+}
+
+#email {
+	padding: 80px 0px
+}
+
+/* 頁尾 */
+footer {
+	padding: 80px 0px
+}
+
+#email p {
+	margin-top: 40px;
+}
+
+#email .btn {
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+footer {
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+footer img {
+	margin-bottom: 24px;
+}
+
+footer h4 {
+	font-size: 20px;
+	margin-bottom: 35px;
+
+}
+
+footer ul {
+	list-style: none;
+	padding: 0;
+}
+
+footer ul a {
+	color: #707070;
+}
+
+footer a {
+	color: #E8CB49;
+}
+
+footer a:hover {
+	color: #E8CB49;
+}
+
+footer ul a:hover {
+	color: #707070;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+footer ul li {
+	margin-bottom: 10px;
+}
+
+footer ul {
+	float: left;
+	margin-right: 46px;
+}
+
+#latest .thehead h3 {
+	margin-bottom: 7px;
+	font-size: 32px;
+
+}
+
+#latest .thehead p {
+	margin-bottom: 80px;
+
+
+}
+
+#latest .thehead .col-md-4 p {
+	margin-bottom: 0px;
+	margin-top: 25px;
+}
+
+#latest .thehead h3.notag {
+	margin-bottom: 88px;
+}
+
+.card-header .btn,
+.card-header .btn:hover {
+	background: none !important;
+	color: black;
+}
+
+
+
+#singlecontent {
+	padding: 80 0px;
+}
+
+.thetag {
+	color: #E8CB49;
+	font-size: 16px;
+	border: 1px solid #E8CB49;
+	padding: 10px 18px;
+	border-radius: 20px;
+	display: inline-block;
+	margin-left: 7px;
+}
+
+#singlecontent h4 {
+	margin-top: 50px;
+}
+
+.apply {
+	background-color: #f9f9f9;
+	padding: 44px;
+}
+
+.apply .btn {
+	font-size: 16px;
+	margin-top: 31px;
+	width: 100%;
+}
+
+.applybelow {
+	margin-top: 80px;
+	text-align: center;
+}
+
+.btn2 {
+	color: #707070;
+	border: 1px solid #707070;
+	padding: 10px 24px;
+	border-radius: 20px;
+	margin-top: 3px;
+	display: inline-block;
+}
+
+.btn2:hover {
+	text-decoration: none;
+	opacity: 0.8;
+	color: #707070;
+}
+
+
+
+
+
+#contactcontent {
+	padding: 80px 0px;
+}
+
+#contactcontent h3 {
+	margin-bottom: 40px;
+}
+
+#contactcontent a {
+	color: #E8CB49;
+}
+
+#contactcontent a.btn {
+	color: white;
+}
+
+#contactcontent textarea {
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+#contactcontent i {
+	display: inline-block;
+	margin-right: 4px;
+}
+
+/* RWD */
+@media only screen and (max-width: 768px) {
+
+	#second h5,
+	#second-profile h5 {
+		margin-bottom: 50px;
+	}
+
+	#latest .col-md-4 {
+		margin-bottom: 60px;
+	}
+
+	footer h4 {
+		font-size: 17px;
+		margin-top: 30px;
+		margin-bottom: 18px;
+	}
+}
+
+
+
+
+
+
+
+/* RWD：手機裝置縮小偽元素高度並調整 padding */
+@media only screen and (max-width: 768px) {
+	#intro::before {
+		height: 6px;
+	}
+
+	.swiper-container {
+		padding: 12px 0;
+	}
+
+
+}
+
+/* 全站背景改為白色 */
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #000;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+}
+
+/* 標題欄位配合輪播深色 */
+.site-top {
+	background-color: #262626;
+	color: #fff;
+}
+
+.site-top .container {
+	max-width: 1200px;
+}
+
+.site-top h1 {
+	color: #fff;
+}
+
+/* 讓整個 header 條為深色（滿版） */
+header {
+	background-color: #262626;
+}
+
+#intro .container {
+	padding: 200px 0;
+}
+
+/* 自 intro 的背景樣式（從 HTML 的 inline style 移到 CSS，繁體中文註解） */
+#intro {
+	/* Intro 保留圖片背景，移除漸層遮罩 */
+	background: url('../img/s1.png') no-repeat center;
+	background-size: cover;
+	padding: 120px 0;
+	color: #fff;
+	/* 白色文字以利對比 */
+	position: relative;
+	z-index: 1;
+}
+
+/* 頂部深色偽元素，遮掉可能出現的白線（合併自先前重複區塊） */
+#intro::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	/* 與 #intro 頂部對齊 */
+	height: 8px;
+	/* 可再微調高度 */
+	background: #262626;
+	pointer-events: none;
+	z-index: 2;
+}
+
+header .navbar {
+	background-color: transparent;
+	/* container 內的 navbar 透明，header 提供背景 */
+}
+
+header .navbar .nav-link {
+	color: #fff;
+}
+
+header .navbar .nav-link.active {
+	color: #E8CB49;
+}
+
+header .navbar-toggler {
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+header .navbar-toggler-icon {
+	filter: invert(100%);
+}
+
+
+/* 將輪播區塊背景設為深色（只影響輪播區域） */
+.swiper-container {
+	background-color: #262626;
+	padding: 40px 0;
+	margin: 0;
+	/* 取消上下 margin，避免露出白底間隙 */
+}
+
+/* 保留 slide 樣式（視覺上讓圖片置中且不影響頁面其他區塊） */
+.swiper-slide {
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 450px;
+	height: 670px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.bg .bgImg {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	height: 100%;
+}
+
+.shadow {
+	position: absolute;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	height: 100%;
+	text-align: center;
+	line-height: 670px;
+	color: #ffffff;
+	font-size: 30px;
+	display: none;
+	border-radius: 10px;
+}
+
+/* Main styles */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.text {
+	fill: none;
+	stroke-width: 6;
+	stroke-linejoin: round;
+	stroke-dasharray: 70 330;
+	stroke-dashoffset: 0;
+	-webkit-animation: stroke 6s infinite linear;
+	animation: stroke 6s infinite linear;
+}
+
+.text:nth-child(5n + 1) {
+	stroke: #F2385A;
+	-webkit-animation-delay: -1.2s;
+	animation-delay: -1.2s;
+}
+
+.text:nth-child(5n + 2) {
+	stroke: #F5A503;
+	-webkit-animation-delay: -2.4s;
+	animation-delay: -2.4s;
+}
+
+.text:nth-child(5n + 3) {
+	stroke: #E9F1DF;
+	-webkit-animation-delay: -3.6s;
+	animation-delay: -3.6s;
+}
+
+.text:nth-child(5n + 4) {
+	stroke: #56D9CD;
+	-webkit-animation-delay: -4.8s;
+	animation-delay: -4.8s;
+}
+
+.text:nth-child(5n + 5) {
+	stroke: #3AA1BF;
+	-webkit-animation-delay: -6s;
+	animation-delay: -6s;
+}
+
+@-webkit-keyframes stroke {
+	100% {
+		stroke-dashoffset: -400;
+	}
+}
+
+@keyframes stroke {
+	100% {
+		stroke-dashoffset: -400;
+	}
+}
+
+/* 移除多餘的重複定義，維持上方正確設置 */

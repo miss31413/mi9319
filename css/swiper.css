@@ -1,0 +1,80 @@
+/* 以下為從 index.html head 的 <style> 搬過來的樣式（繁體中文註解） */
+body {
+    /* 基本文字設定，背景顏色由 style.css 控制 */
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-container {
+    /* 將 swiper 容器置中顯示（改為相對定位以避免覆蓋其他內容，並允許垂直捲動） */
+    width: 100%;
+    position: relative;
+    margin:
+        /*40px auto*/
+        0;
+    padding: 20px 0;
+    min-height: 700px;
+    /* 確保 container 足夠高度容納 slide */
+    z-index: 50;
+    /* 讓輪播顯示在內容之上 */
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slide {
+    /* 每張 slide 的基本樣式（完整背景控制，避免被拉伸/重複） */
+    background-position: center center;
+    background-size: cover;
+    /* 如要完整顯示可改為 contain */
+    background-repeat: no-repeat;
+    width: 450px;
+    height: 670px;
+    border-radius: 10px;
+    overflow: hidden;
+    /* 確保圓角內的內容不外溢 */
+}
+
+.bg .bgImg {
+    /* 背景大圖固定位置 */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+}
+
+.shadow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    line-height: normal;
+    color: #ffffff;
+    display: none;
+    /*block;*/
+    /*如果文字要常駐*/
+    border-radius: 10px;
+}
+
+
+/* 把 span 的 display 也移到 CSS，避免在 HTML 使用 inline style */
+/**/
+.shadow span {
+    position: absolute;
+    left: 50%;
+    bottom
+    /*底部高度*/
+    : 80px;
+    transform: translateX(-50%);
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-size
+    /*字體大小*/
+    : 50px;
+    display: inline-block;
+}

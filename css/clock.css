@@ -1,0 +1,98 @@
+﻿/* --- 極簡系統狀態膠囊 (Minimalist Status Capsule) --- */
+.clock-widget-wrapper {
+  position: fixed;
+  /* 修正：改為固定位置，像系統資訊列 */
+  top: 100px;
+  /* 避開頂部導覽列 */
+  right: 30px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.clock-container {
+  /* 修正：改為水平膠囊造型，提升通透感與專業度 */
+  display: flex;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 20px;
+  border-radius: 50px;
+  /* 藥丸膠囊造型 */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  gap: 15px;
+}
+
+/* 狀態呼吸點 (Live Status Dot) */
+.clock-container::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #E8CB49;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulseLive 2s infinite;
+  box-shadow: 0 0 12px #E8CB49;
+}
+
+@keyframes pulseLive {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+#clock {
+  font-family: "Share Tech Mono", monospace;
+  color: #ffffff;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  /* 水平拉開日期與時間 */
+}
+
+#clock p {
+  margin: 0;
+  line-height: 1;
+}
+
+#clock .date {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#clock .time {
+  font-size: 20px;
+  /* 修正：縮小字級走精緻掛件路線 */
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* 行動裝置優化：在手機版移至底部，避免擋到上方按鈕 */
+@media (max-width: 991px) {
+  .clock-widget-wrapper {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .clock-container {
+    padding: 6px 15px;
+    gap: 10px;
+  }
+}
