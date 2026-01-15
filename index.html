@@ -1,451 +1,582 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="html, css, 網頁, JS, javascript" />
+    <meta name="description" content="黃浚潁的網站作業練習" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Markup Master" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS：第三方先載入，自訂 CSS 放在後面以便覆寫 -->
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/clock.css" />
+    <!-- Google Fonts 預連線 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/jquery.min.js"></script>
+    <!--icon-->
+    <script
+      src="https://kit.fontawesome.com/95a4ebfcf0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Markup Master | 我的網頁製作學習誌</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="keywords" content="html, css, 網頁, JS, javascript">
-  <meta name="description" content="黃浚潁的網站作業練習">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Markup Master">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- CSS：第三方先載入，自訂 CSS 放在後面以便覆寫 -->
-  <link rel="stylesheet" href="css/swiper.min.css">
-  <link rel="stylesheet" href="css/animate.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/swiper.css">
-  <link rel="stylesheet" href="css/clock.css">
-  <!-- Google Fonts 預連線 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap" rel="stylesheet">
-  <script src="js/jquery.min.js"></script>
-  <!--icon-->
-  <script src="https://kit.fontawesome.com/95a4ebfcf0.js" crossorigin="anonymous"></script>
-  <!-- Bootstrap bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <title>Markup Master | 我的網頁製作學習誌</title>
-</head>
+  <body>
+    <div class="hero-dark">
+      <header>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <!-- 品牌 Logo + 標題 -->
+              <a class="navbar-brand d-flex align-items-center" href="#">
+                <img
+                  src="img/logo_markup_master.png"
+                  alt="Markup Master logo"
+                  height="35"
+                  class="me-2"
+                />
+                <span class="fw-bold tracking-tight">Markup Master</span>
+              </a>
 
-<body>
-  <div class="hero-dark">
-    <header>
+              <!-- 手機版切換按鈕 -->
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll"
+                aria-expanded="false"
+                aria-label="切換導覽列"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <!-- 導覽列內容 -->
+              <div class="collapse navbar-collapse" id="navbarScroll">
+                <!-- 左側選單 -->
+                <ul
+                  class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                  style="--bs-scroll-height: 240px"
+                >
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"
+                      >首頁</a
+                    >
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">關於本站</a>
+                  </li>
+
+                  <!-- 下拉選單：課程作業 -->
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      課程作業
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">HTML 作業</a></li>
+                      <li><a class="dropdown-item" href="#">CSS 作業</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">JavaScript 作業</a>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li><a class="dropdown-item" href="#">繼續學習</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">資源下載</a>
+                  </li>
+                </ul>
+
+                <!-- 右側搜尋：質感膠囊優化 -->
+                <form class="d-flex search-capsule" role="search">
+                  <div class="input-group">
+                    <span
+                      class="input-group-text border-0 bg-transparent text-secondary"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input
+                      class="form-control border-0 bg-transparent text-white"
+                      type="search"
+                      placeholder="搜尋作業..."
+                      aria-label="搜尋"
+                    />
+                    <button class="btn btn-search px-4 py-1" type="submit">
+                      <span class="d-none d-lg-inline">搜尋</span>
+                      <i class="fa-solid fa-arrow-right d-lg-none"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Swiper 容器 -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" data-bg="images/1.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁1</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/2.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁2</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/3.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁3</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/4.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁4</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/5.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁5</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/6.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁6</span></div>
+          </div>
+          <div class="swiper-slide" data-bg="images/7.png">
+            <div class="shadow"><span class="animated zoomIn">浚潁7</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 質感優化：將時鐘改為 Hero 區塊內的精緻掛件 -->
+      <div class="clock-widget-wrapper d-none d-lg-block">
+        <div class="clock-container shadow-sm">
+          <div id="clock">
+            <p class="date">{{ date }}</p>
+            <p class="time">{{ time }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.hero-dark -->
+
+    <!-- 區塊銜接優化：加入斜線分界 -->
+    <div class="section-divider-top"></div>
+
+    <section id="intro" class="reveal">
       <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-          <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <div class="intro-glass-card">
+              <h1 class="display-3 fw-black">學習，是一場持續前進的旅程</h1>
 
-            <!-- 品牌 Logo + 標題 -->
-            <a class="navbar-brand d-flex align-items-center" href="#">
-              <img src="img/logo_markup_master.png" alt="Markup Master logo" height="35" class="me-2">
-              <span class="fw-bold tracking-tight">Markup Master</span>
-            </a>
+              <p class="lead mt-4 mb-5">
+                透過每一次練習與嘗試，累積知識與經驗，<br />
+                將想法一步步轉化為實際成果，為未來打下穩固的基礎。
+              </p>
 
-            <!-- 手機版切換按鈕 -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-              aria-controls="navbarScroll" aria-expanded="false" aria-label="切換導覽列">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+              <a href="#" class="btn btn-outline-light rounded-pill"
+                >開始探索我的作品</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <!-- 導覽列內容 -->
-            <div class="collapse navbar-collapse" id="navbarScroll">
+    <!-- 第二區（作業內容） -->
+    <section
+      id="second"
+      class="position-relative overflow-hidden bg-texture reveal"
+    >
+      <!-- Background Decorations -->
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+      <div class="bg-glow bg-glow-3"></div>
 
-              <!-- 左側選單 -->
-              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 240px;">
+      <div class="container position-relative" style="z-index: 2">
+        <div class="row justify-content-center text-center">
+          <div class="col-md-10 mb-5">
+            <h2 class="display-6 fw-bold mb-3">網頁製作心得</h2>
+            <p class="lead text-secondary">
+              從零到一的學習過程，是將想像轉化為現實的奇妙旅程。
+            </p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <!-- Feature 1 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
+              <div
+                class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
+                style="width: 70px; height: 70px"
+              >
+                <i class="fa-solid fa-code fa-2x"></i>
+              </div>
+              <h4 class="mb-3">核心技術</h4>
+              <p class="text-secondary">
+                深入理解 HTML5 與 CSS3，掌握網頁結構佈局與美學設計的精髓。
+              </p>
+            </div>
+          </div>
+          <!-- Feature 2 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
+              <div
+                class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
+                style="width: 70px; height: 70px"
+              >
+                <i class="fa-solid fa-mobile-screen-button fa-2x"></i>
+              </div>
+              <h4 class="mb-3">響應式設計</h4>
+              <p class="text-secondary">
+                運用 Bootstrap 權力打造 RWD
+                版面，確保在各種裝置上都能獲得完美體驗。
+              </p>
+            </div>
+          </div>
+          <!-- Feature 3 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
+              <div
+                class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
+                style="width: 70px; height: 70px"
+              >
+                <i class="fa-solid fa-rocket fa-2x"></i>
+              </div>
+              <h4 class="mb-3">持續啟航</h4>
+              <p class="text-secondary">
+                不斷探索 JavaScript 與前端新技術，將程式力轉化為無限的創造力。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 結束 second 區塊 -->
 
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">首頁</a>
-                </li>
+    <section id="second-profile" class="bg-texture reveal">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h3 class="text-center">個人簡介</h3>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="#">關於本站</a>
-                </li>
+            <div class="row justify-content-around align-items-center">
+              <div class="col-md-5 self">
+                <img
+                  src="img/ccc.png"
+                  alt="個人半身照"
+                  class="rounded-4 shadow-lg border border-3 border-white"
+                  loading="lazy"
+                />
+              </div>
 
-                <!-- 下拉選單：課程作業 -->
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    課程作業
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">HTML 作業</a></li>
-                    <li><a class="dropdown-item" href="#">CSS 作業</a></li>
-                    <li><a class="dropdown-item" href="#">JavaScript 作業</a></li>
-                    <li>
-                      <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">繼續學習</a></li>
-                  </ul>
-                </li>
+              <div class="col-md-6">
+                <div
+                  class="brand-badge mb-4 d-inline-block px-3 py-1 rounded-pill bg-warning text-dark fw-bold small"
+                >
+                  <i class="fa-solid fa-graduation-cap me-2"></i>網頁設計實攻
+                </div>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="#">資源下載</a>
-                </li>
+                <p class="lead mb-5">
+                  我是浚潁，目前在高雄工作與生活，正在學習網頁前後端技術，
+                  希望把「把想法做成作品」這件事，變成我日常的一部分。
+                </p>
 
-              </ul>
-
-              <!-- 右側搜尋：質感膠囊優化 -->
-              <form class="d-flex search-capsule" role="search">
-                <div class="input-group">
-                  <span class="input-group-text border-0 bg-transparent text-secondary">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </span>
-                  <input class="form-control border-0 bg-transparent text-white" type="search" placeholder="搜尋作業..."
-                    aria-label="搜尋">
-                  <button class="btn btn-search px-4 py-1" type="submit">
-                    <span class="d-none d-lg-inline">搜尋</span>
-                    <i class="fa-solid fa-arrow-right d-lg-none"></i>
+                <ul>
+                  <li class="mb-3">
+                    目前專注練習 Bootstrap 排版，能完成基本 RWD 版面
+                  </li>
+                  <li class="my-3">
+                    正在累積作業作品，包含導覽列、版面分欄、圖片與文字配置
+                  </li>
+                  <li class="my-3">
+                    習慣把程式碼加上註解，讓自己更快複習與整理觀念
+                  </li>
+                  <li class="my-3">
+                    目標是做出一個清楚、好用、手機也順的個人作品頁
+                  </li>
+                  <li class="my-3">
+                    希望把學到的技能，實際用在工作與生活的需求上
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 結束 second-profile 區塊 -->
+    <!-- 精選作品區塊 -->
+    <section id="latest" class="bg-texture reveal">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-12">
+            <h2 class="display-6 fw-bold">作品精選</h2>
+            <p class="text-secondary">課堂練習與作業成果展示</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <!-- 作品 1：Bootstrap 網格 -->
+          <div class="col-md-4">
+            <div
+              class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden"
+            >
+              <a href="#" class="text-decoration-none">
+                <div class="upper position-relative">
+                  <img
+                    src="img/web_html.png"
+                    alt="Bootstrap 網格系統"
+                    class="w-100"
+                  />
+                  <div class="innertext position-absolute top-0 start-0 p-3">
+                    <span
+                      class="badge rounded-pill bg-primary text-white px-3 py-2 shadow-sm"
+                      >課堂練習 01</span
+                    >
+                  </div>
+                </div>
+              </a>
+              <div class="lower p-4">
+                <h4 class="fw-bold mb-2">Bootstrap 網格系統應用</h4>
+                <p class="text-muted small mb-3">
+                  <i class="fa-solid fa-table-cells me-2"></i>練習使用 Row 與
+                  Col 進行欄位分欄
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <div class="status">
+                    <span class="text-muted small">作業進度</span>
+                    <span class="h6 fw-bold text-primary mb-0 d-block"
+                      >已完成修復</span
+                    >
+                  </div>
+                  <button class="btn btn-dark rounded-pill px-4 py-2">
+                    觀看作品
                   </button>
                 </div>
-              </form>
-
+              </div>
             </div>
           </div>
-        </nav>
+          <!-- 作品 2：HTML 結構 -->
+          <div class="col-md-4">
+            <div
+              class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden"
+            >
+              <a href="#" class="text-decoration-none">
+                <div class="upper position-relative">
+                  <img src="img/web_js.png" alt="HTML 基礎架構" class="w-100" />
+                  <div class="innertext position-absolute top-0 start-0 p-3">
+                    <span
+                      class="badge rounded-pill bg-warning text-dark px-3 py-2 shadow-sm"
+                      >課堂練習 02</span
+                    >
+                  </div>
+                </div>
+              </a>
+              <div class="lower p-4">
+                <h4 class="fw-bold mb-2">HTML 網頁基礎架構</h4>
+                <p class="text-muted small mb-3">
+                  <i class="fa-solid fa-code me-2"></i>建立 Navbar、Section 與
+                  Footer 的層級結構
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <div class="status">
+                    <span class="text-muted small">作業進度</span>
+                    <span class="h6 fw-bold text-warning mb-0 d-block"
+                      >持續更新中</span
+                    >
+                  </div>
+                  <button class="btn btn-dark rounded-pill px-4 py-2">
+                    觀看作品
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 作品 3：響應式佈局 -->
+          <div class="col-md-4">
+            <div
+              class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden"
+            >
+              <a href="#" class="text-decoration-none">
+                <div class="upper position-relative">
+                  <img
+                    src="img/web_uiux.png"
+                    alt="RWD 響應式佈局"
+                    class="w-100"
+                  />
+                  <div class="innertext position-absolute top-0 start-0 p-3">
+                    <span
+                      class="badge rounded-pill bg-info text-dark px-3 py-2 shadow-sm"
+                      >專題作業</span
+                    >
+                  </div>
+                </div>
+              </a>
+              <div class="lower p-4">
+                <h4 class="fw-bold mb-2">RWD 響應式佈局練習</h4>
+                <p class="text-muted small mb-3">
+                  <i class="fa-solid fa-mobile-screen-button me-2"></i
+                  >確保網頁內容在電腦與手機上顯示正常
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <div class="status">
+                    <span class="text-muted small">作業進度</span>
+                    <span class="h6 fw-bold text-info mb-0 d-block"
+                      >優化細節中</span
+                    >
+                  </div>
+                  <button class="btn btn-dark rounded-pill px-4 py-2">
+                    觀看作品
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </header>
-
-    <!-- Swiper 容器 -->
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" data-bg="images/1.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁1</span></div>
+    </section>
+    <!-- 結束 latest 區塊 -->
+    <!--e-mail-->
+    <section id="email">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2 text-center">
+            <h3 class="mb-4">訂閱 Markup Master</h3>
+          </div>
         </div>
-        <div class="swiper-slide" data-bg="images/2.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁2</span></div>
-        </div>
-        <div class="swiper-slide" data-bg="images/3.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁3</span></div>
-        </div>
-        <div class="swiper-slide" data-bg="images/4.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁4</span></div>
-        </div>
-        <div class="swiper-slide" data-bg="images/5.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁5</span></div>
-        </div>
-        <div class="swiper-slide" data-bg="images/6.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁6</span></div>
-        </div>
-        <div class="swiper-slide" data-bg="images/7.png">
-          <div class="shadow"><span class="animated zoomIn">浚潁7</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 質感優化：將時鐘改為 Hero 區塊內的精緻掛件 -->
-    <div class="clock-widget-wrapper d-none d-lg-block">
-      <div class="clock-container shadow-sm">
-        <div id="clock">
-          <p class="date">{{ date }}</p>
-          <p class="time">{{ time }}</p>
+        <div class="row">
+          <div class="col-md-8 offset-md-2 text-center">
+            <p>訂閱我們的技術週報，掌握最新 HTML、CSS 與 Web 開發資訊</p>
+            <div class="input-group input-group-lg shadow-sm">
+              <input
+                type="text"
+                class="form-control border-0"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg"
+                placeholder="請輸入您的 E-mail 地址"
+              />
+              <button class="btn btn-warning px-5" type="button">
+                立即訂閱
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div> <!-- /.hero-dark -->
+    </section>
+    <footer>
+      <div class="container">
+        <!-- Bootstrap 容器，限制內容寬度 -->
 
-  <!-- 區塊銜接優化：加入斜線分界 -->
-  <div class="section-divider-top"></div>
-
-  <section id="intro" class="reveal">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-8">
-          <div class="intro-glass-card">
-            <h1 class="display-3 fw-black">
-              學習，是一場持續前進的旅程
-            </h1>
-
-            <p class="lead mt-4 mb-5">
-              透過每一次練習與嘗試，累積知識與經驗，<br>
-              將想法一步步轉化為實際成果，為未來打下穩固的基礎。
+        <div class="row">
+          <!-- 列，底下會分成多個欄位 -->
+          <div class="col-md-4">
+            <!-- 第一欄：Logo 與簡介 -->
+            <img
+              src="img/logo_markup_master.png"
+              alt="Markup Master logo"
+              height="45"
+              class="mb-3"
+              loading="lazy"
+            />
+            <!-- 網站或個人 Logo -->
+            <p>
+              Markup Master | 網頁設計學習日誌<br />記錄每一行代碼的成長，打造全方位前端技術力。
             </p>
-
-            <a href="#" class="btn btn-outline-light rounded-pill">開始探索我的作品</a>
+            <!-- 簡短說明文字，<br> 用來換行 -->
+          </div>
+          <div class="col-md-4">
+            <!-- 第二欄：網站連結 -->
+            <h4>網站地圖</h4>
+            <!-- 小標題 -->
+            <ul>
+              <!-- 第一組連結 -->
+              <li><a href="index.html">首頁</a></li>
+              <li><a href="all.html">最新消息</a></li>
+            </ul>
+            <ul>
+              <!-- 第二組連結 -->
+              <li><a href="faq.html">vue作品</a></li>
+              <li><a href="contact.html">聯絡我們</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <!-- 第三欄：資訊 -->
+            <h4>聯絡我們</h4>
+            <p>
+              高雄市左營左營大路162號<br />
+              Phone:(07) 123-2568<br />
+              E-mail：<a href="mailto:miss0933@gmail.com">miss0933@gmail.com</a>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- 第二區（作業內容） -->
-  <section id="second" class="position-relative overflow-hidden bg-texture reveal">
-    <!-- Background Decorations -->
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <!-- Vue.js -->
+    <script src="js/vue.min.js"></script>
+    <!-- Clock.js -->
+    <script src="js/clock.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
+    <!-- 初始化與背景處理已移至 js/swiper-init.js -->
+    <script src="js/swiper-init.js"></script>
 
-    <div class="container position-relative" style="z-index: 2;">
-      <div class="row justify-content-center text-center">
-        <div class="col-md-10 mb-5">
-          <h2 class="display-6 fw-bold mb-3">網頁製作心得</h2>
-          <p class="lead text-secondary">從零到一的學習過程，是將想像轉化為現實的奇妙旅程。</p>
-        </div>
-      </div>
-      <div class="row g-4">
-        <!-- Feature 1 -->
-        <div class="col-md-4">
-          <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
-            <div class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
-              style="width: 70px; height: 70px;">
-              <i class="fa-solid fa-code fa-2x"></i>
-            </div>
-            <h4 class="mb-3">核心技術</h4>
-            <p class="text-secondary">深入理解 HTML5 與 CSS3，掌握網頁結構佈局與美學設計的精髓。</p>
-          </div>
-        </div>
-        <!-- Feature 2 -->
-        <div class="col-md-4">
-          <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
-            <div class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
-              style="width: 70px; height: 70px;">
-              <i class="fa-solid fa-mobile-screen-button fa-2x"></i>
-            </div>
-            <h4 class="mb-3">響應式設計</h4>
-            <p class="text-secondary">運用 Bootstrap 權力打造 RWD 版面，確保在各種裝置上都能獲得完美體驗。</p>
-          </div>
-        </div>
-        <!-- Feature 3 -->
-        <div class="col-md-4">
-          <div class="feature-card h-100 p-5 shadow-sm rounded-4 text-center">
-            <div class="feature-icon mb-4 rounded-circle d-inline-flex align-items-center justify-content-center"
-              style="width: 70px; height: 70px;">
-              <i class="fa-solid fa-rocket fa-2x"></i>
-            </div>
-            <h4 class="mb-3">持續啟航</h4>
-            <p class="text-secondary">不斷探索 JavaScript 與前端新技術，將程式力轉化為無限的創造力。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- 結束 second 區塊 -->
+    <!-- --- 全方位 UI 升級腳本 --- -->
+    <script>
+      // 滾動出現動畫 (Scroll Reveal)
+      const revealCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target); // 只觸發一次
+          }
+        });
+      };
 
-  <section id="second-profile" class="bg-texture reveal">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
+      const revealObserver = new IntersectionObserver(revealCallback, {
+        threshold: 0.15,
+      });
 
-          <h3 class="text-center">個人簡介</h3>
+      document.querySelectorAll(".reveal").forEach((el) => {
+        revealObserver.observe(el);
+      });
 
-          <div class="row justify-content-around align-items-center">
-
-            <div class="col-md-5 self">
-              <img src="img/ccc.png" alt="個人半身照" class="rounded-4 shadow-lg border border-3 border-white"
-                loading="lazy">
-            </div>
-
-            <div class="col-md-6">
-              <div class="brand-badge mb-4 d-inline-block px-3 py-1 rounded-pill bg-warning text-dark fw-bold small">
-                <i class="fa-solid fa-graduation-cap me-2"></i>網頁設計實攻
-              </div>
-
-              <p class="lead mb-5">
-                我是浚潁，目前在高雄工作與生活，正在學習網頁前後端技術，
-                希望把「把想法做成作品」這件事，變成我日常的一部分。
-              </p>
-
-              <ul>
-                <li class="mb-3">目前專注練習 Bootstrap 排版，能完成基本 RWD 版面</li>
-                <li class="my-3">正在累積作業作品，包含導覽列、版面分欄、圖片與文字配置</li>
-                <li class="my-3">習慣把程式碼加上註解，讓自己更快複習與整理觀念</li>
-                <li class="my-3">目標是做出一個清楚、好用、手機也順的個人作品頁</li>
-                <li class="my-3">希望把學到的技能，實際用在工作與生活的需求上</li>
-              </ul>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- 結束 second-profile 區塊 -->
-  <!-- 精選作品區塊 -->
-  <section id="latest" class="bg-texture reveal">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col-12">
-          <h2 class="display-6 fw-bold">作品精選</h2>
-          <p class="text-secondary">課堂練習與作業成果展示</p>
-        </div>
-      </div>
-      <div class="row g-4">
-        <!-- 作品 1：Bootstrap 網格 -->
-        <div class="col-md-4">
-          <div class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-            <a href="#" class="text-decoration-none">
-              <div class="upper position-relative">
-                <img src="img/web_html.png" alt="Bootstrap 網格系統" class="w-100">
-                <div class="innertext position-absolute top-0 start-0 p-3">
-                  <span class="badge rounded-pill bg-primary text-white px-3 py-2 shadow-sm">課堂練習 01</span>
-                </div>
-              </div>
-            </a>
-            <div class="lower p-4">
-              <h4 class="fw-bold mb-2">Bootstrap 網格系統應用</h4>
-              <p class="text-muted small mb-3"><i class="fa-solid fa-table-cells me-2"></i>練習使用 Row 與 Col 進行欄位分欄</p>
-              <div class="d-flex justify-content-between align-items-center mt-4">
-                <div class="status">
-                  <span class="text-muted small">作業進度</span>
-                  <span class="h6 fw-bold text-primary mb-0 d-block">已完成修復</span>
-                </div>
-                <button class="btn btn-dark rounded-pill px-4 py-2">觀看作品</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 作品 2：HTML 結構 -->
-        <div class="col-md-4">
-          <div class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-            <a href="#" class="text-decoration-none">
-              <div class="upper position-relative">
-                <img src="img/web_js.png" alt="HTML 基礎架構" class="w-100">
-                <div class="innertext position-absolute top-0 start-0 p-3">
-                  <span class="badge rounded-pill bg-warning text-dark px-3 py-2 shadow-sm">課堂練習 02</span>
-                </div>
-              </div>
-            </a>
-            <div class="lower p-4">
-              <h4 class="fw-bold mb-2">HTML 網頁基礎架構</h4>
-              <p class="text-muted small mb-3"><i class="fa-solid fa-code me-2"></i>建立 Navbar、Section 與 Footer 的層級結構</p>
-              <div class="d-flex justify-content-between align-items-center mt-4">
-                <div class="status">
-                  <span class="text-muted small">作業進度</span>
-                  <span class="h6 fw-bold text-warning mb-0 d-block">持續更新中</span>
-                </div>
-                <button class="btn btn-dark rounded-pill px-4 py-2">觀看作品</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- 作品 3：響應式佈局 -->
-        <div class="col-md-4">
-          <div class="outer h-100 shadow-sm border-0 rounded-4 overflow-hidden">
-            <a href="#" class="text-decoration-none">
-              <div class="upper position-relative">
-                <img src="img/web_uiux.png" alt="RWD 響應式佈局" class="w-100">
-                <div class="innertext position-absolute top-0 start-0 p-3">
-                  <span class="badge rounded-pill bg-info text-dark px-3 py-2 shadow-sm">專題作業</span>
-                </div>
-              </div>
-            </a>
-            <div class="lower p-4">
-              <h4 class="fw-bold mb-2">RWD 響應式佈局練習</h4>
-              <p class="text-muted small mb-3"><i class="fa-solid fa-mobile-screen-button me-2"></i>確保網頁內容在電腦與手機上顯示正常
-              </p>
-              <div class="d-flex justify-content-between align-items-center mt-4">
-                <div class="status">
-                  <span class="text-muted small">作業進度</span>
-                  <span class="h6 fw-bold text-info mb-0 d-block">優化細節中</span>
-                </div>
-                <button class="btn btn-dark rounded-pill px-4 py-2">觀看作品</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- 結束 latest 區塊 -->
-  <!--e-mail-->
-  <section id="email">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 offset-md-2 text-center">
-          <h3 class="mb-4">訂閱 Markup Master</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 offset-md-2 text-center">
-          <p>訂閱我們的技術週報，掌握最新 HTML、CSS 與 Web 開發資訊</p>
-          <div class="input-group input-group-lg shadow-sm">
-            <input type="text" class="form-control border-0" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-lg" placeholder="請輸入您的 E-mail 地址">
-            <button class="btn btn-warning px-5" type="button">立即訂閱</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="container">
-      <!-- Bootstrap 容器，限制內容寬度 -->
-
-      <div class="row">
-        <!-- 列，底下會分成多個欄位 -->
-        <div class="col-md-4">
-          <!-- 第一欄：Logo 與簡介 -->
-          <img src="img/logo_markup_master.png" alt="Markup Master logo" height="45" class="mb-3" loading="lazy">
-          <!-- 網站或個人 Logo -->
-          <p>Markup Master | 網頁設計學習日誌<br>記錄每一行代碼的成長，打造全方位前端技術力。</p>
-          <!-- 簡短說明文字，<br> 用來換行 -->
-        </div>
-        <div class="col-md-4"><!-- 第二欄：網站連結 -->
-          <h4>網站地圖</h4><!-- 小標題 -->
-          <ul>
-            <!-- 第一組連結 -->
-            <li><a href="index.html">首頁</a></li>
-            <li><a href="all.html">最新消息</a></li>
-          </ul>
-          <ul>
-            <!-- 第二組連結 -->
-            <li><a href="faq.html">vue作品</a></li>
-            <li><a href="contact.html">聯絡我們</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4"><!-- 第三欄：資訊 -->
-          <h4>聯絡我們</h4>
-          <p>高雄市左營左營大路162號<br>
-            Phone:(07) 345-2568<br>
-            E-mail：<a href="mailto:miss0933@gmail.com">miss0933@gmail.com</a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Vue.js -->
-  <script src="js/vue.min.js"></script>
-  <!-- Clock.js -->
-  <script src="js/clock.js"></script>
-  <!-- Swiper JS -->
-  <script src="js/swiper.min.js"></script>
-  <!-- 初始化與背景處理已移至 js/swiper-init.js -->
-  <script src="js/swiper-init.js"></script>
-
-  <!-- --- 全方位 UI 升級腳本 --- -->
-  <script>
-    // 滾動出現動畫 (Scroll Reveal)
-    const revealCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target); // 只觸發一次
+      // 導覽列捲動效果 (Navbar Scroll Effect)
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
         }
       });
-    };
-
-    const revealObserver = new IntersectionObserver(revealCallback, {
-      threshold: 0.15
-    });
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      revealObserver.observe(el);
-    });
-
-    // 導覽列捲動效果 (Navbar Scroll Effect)
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-  </script>
-
-
-</body>
-
+    </script>
+  </body>
 </html>
