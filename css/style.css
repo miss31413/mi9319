@@ -811,6 +811,22 @@ footer a:hover {
   transition-delay: var(--delay, 0s);
 }
 
+.delay-1 {
+  --delay: 0.1s;
+}
+
+.delay-2 {
+  --delay: 0.2s;
+}
+
+.delay-3 {
+  --delay: 0.3s;
+}
+
+.delay-4 {
+  --delay: 0.4s;
+}
+
 .reveal.active .reveal-item {
   opacity: 1;
   transform: translateY(0);
