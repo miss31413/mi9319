@@ -1,0 +1,32 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F3EC" />
+      <stop offset="1" stop-color="#EFE5D6" />
+    </linearGradient>
+    <linearGradient id="cardGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#C2A169" stop-opacity="0.4" />
+      <stop offset="1" stop-color="#4F7770" stop-opacity="0.35" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" rx="40" fill="url(#bg1)" />
+  <circle cx="180" cy="160" r="90" fill="#E9DED0" />
+  <circle cx="1030" cy="210" r="120" fill="#EFE0CC" />
+  <circle cx="970" cy="690" r="160" fill="#EAD7C3" />
+  <rect x="130" y="220" width="320" height="420" rx="28" fill="#FFFFFF" stroke="#E2D5C2" stroke-width="2" />
+  <rect x="170" y="260" width="240" height="18" rx="9" fill="#C2A169" />
+  <rect x="170" y="310" width="200" height="14" rx="7" fill="#D9C3A0" />
+  <rect x="170" y="350" width="180" height="14" rx="7" fill="#E0D1BD" />
+  <rect x="130" y="520" width="320" height="120" rx="24" fill="url(#cardGlow)" />
+  <rect x="480" y="140" width="360" height="520" rx="32" fill="#FFFFFF" stroke="#E2D5C2" stroke-width="2" />
+  <rect x="520" y="190" width="280" height="22" rx="11" fill="#4F7770" />
+  <rect x="520" y="240" width="260" height="16" rx="8" fill="#B8796B" />
+  <rect x="520" y="300" width="240" height="16" rx="8" fill="#D9C3A0" />
+  <rect x="520" y="360" width="280" height="220" rx="20" fill="#F2E7D8" stroke="#E2D5C2" stroke-width="2" />
+  <rect x="880" y="260" width="220" height="320" rx="26" fill="#FFFFFF" stroke="#E2D5C2" stroke-width="2" />
+  <rect x="910" y="300" width="160" height="18" rx="9" fill="#C2A169" />
+  <rect x="910" y="340" width="140" height="14" rx="7" fill="#D9C3A0" />
+  <rect x="910" y="380" width="120" height="14" rx="7" fill="#E0D1BD" />
+  <path d="M140 710C260 640 420 640 540 710" stroke="#C2A169" stroke-width="4" stroke-linecap="round" />
+  <path d="M640 690C770 610 930 610 1060 690" stroke="#4F7770" stroke-width="4" stroke-linecap="round" />
+</svg>
