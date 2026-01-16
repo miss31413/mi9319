@@ -1,0 +1,14 @@
+<svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Fullstack studio logo"
+>
+  <rect x="6" y="6" width="108" height="108" rx="22" fill="#0b1221" />
+  <path d="M32 38h56v8H32z" fill="#3b82f6" />
+  <path d="M32 56h56v8H32z" fill="#e2e8f0" />
+  <path d="M32 74h56v8H32z" fill="#60a5fa" />
+  <circle cx="88" cy="32" r="6" fill="#60a5fa" />
+</svg>

@@ -23,6 +23,11 @@
     grabCursor: true,
     centeredSlides: true,
     slidesPerView: 'auto',
+    speed: 900,
+    autoplay: {
+      delay: 2600,
+      disableOnInteraction: false
+    },
     loop: true,
     coverflowEffect: {
       rotate: 50,
