@@ -33,7 +33,7 @@
 
     subscribeForm.addEventListener('submit', (event) => {
       const value = emailInput.value.trim();
-      const isValid = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value);
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
       const action = subscribeForm.getAttribute('action');
       const hasAction = action && action !== '#';
       const hasNetlify = subscribeForm.hasAttribute('data-netlify');
