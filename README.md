@@ -11,15 +11,14 @@ Markup Master 的學習作品集，記錄前端練習、版面設計與互動細
 
 ## 設計理念 (Design Concept)
 - 把每一次練習，變成可以展示的作品
-- 這裡記錄我的前端學習軌跡：從版面架構、視覺節奏到互動細節，把每次練習整理成可閱讀、可分享的成果。
-- 以溫潤不刺眼的色調降低閱讀負擔，強調內容層次與資訊節奏。
+- 不只做出畫面，還要理解為什麼這樣設計。每個區塊都在累積判斷力。
 - 結構清楚?用語意化標籤整理版面，讓內容層級清晰、可讀性提升。
 - RWD 優化?手機、平板、桌機都能保持視覺一致，讓作品自然適配。
 - 互動細節?滑動、hover、漸進動畫，讓作品看起來有節奏、有呼吸感。
 
 ## 功能一覽 (Features)
 - 單頁導覽 (Sections): 首頁 / 亮點 / 作品 / 路線 / 關於 / 版本
-- 輪播展示 (Swiper)
+- 輪播展示 (Swiper Carousel)
 - 滾動進場動畫 + 卡片互動 (Scroll Reveal + Hover)
 - 訂閱表單 (Netlify Forms)
 - 成功頁導向 (`thanks.html`)
@@ -37,15 +36,15 @@ Markup Master 的學習作品集，記錄前端練習、版面設計與互動細
 ## 目錄結構 (Structure)
 ```
 .
-??? index.html
-??? thanks.html
-??? README.md
-??? REVISION_NOTES.md
-??? _headers
-??? css/
-??? js/
-??? img/
-??? images/
+|-- index.html
+|-- thanks.html
+|-- README.md
+|-- REVISION_NOTES.md
+|-- _headers
+|-- css/
+|-- js/
+|-- img/
+`-- images/
 ```
 
 ## 訂閱表單說明 (Subscription Form)
@@ -62,5 +61,9 @@ Markup Master 的學習作品集，記錄前端練習、版面設計與互動細
 - 已設定 CSP 安全標頭（`_headers`）。
 - 可後續加上 SRI 或自託管第三方檔案，提高網站安全性。
 
+## 徽章說明 (Badges)
+- 徽章使用 Shields.io 產生，可使用連結調整文字、顏色與 Logo。
+- 將徽章圖片貼到 README 就會顯示。
+
 ## 作者 (Author)
-Markup Master (浚潁)
+Markup Master
